@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>GG Foods Ventures</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#FAFAF5; --surface:#FFFFFF; --ink:#1A2118; --muted:#5B6657;
+  --green:#14532D; --on-green:#F4F7EE; --yellow:#F2B705; --chili:#C62839; --line:#D9DED0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  color-scheme:light;
+}
+@media (prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --bg:#0F1710; --surface:#17211A; --ink:#EEF2E6; --muted:#9BA893;
+    --green:#1D6B3B; --on-green:#F4F7EE; --line:#2B382D; color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0F1710; --surface:#17211A; --ink:#EEF2E6; --muted:#9BA893;
+  --green:#1D6B3B; --on-green:#F4F7EE; --line:#2B382D; color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 1.05rem/1.6 Figtree,system-ui,sans-serif}
+h1,h2,h3{font-family:"Bricolage Grotesque",Georgia,sans-serif;line-height:1.05;margin:0}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 1.25rem}
+
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+header .wrap{display:flex;align-items:center;justify-content:space-between;height:64px;gap:1rem}
+.logo{font:800 1.3rem "Bricolage Grotesque",sans-serif;text-decoration:none;letter-spacing:-.02em}
+.logo span{color:var(--chili)}
+.coco{display:inline-block;width:.8em;height:.8em;vertical-align:-.07em;margin:0 .03em}
+nav{display:flex;gap:1.25rem;align-items:center}
+nav a{text-decoration:none;font-weight:500;font-size:.95rem}
+nav a:hover{text-decoration:underline}
+.theme{border:1px solid var(--line);background:var(--surface);color:var(--ink);border-radius:999px;padding:.35rem .8rem;cursor:pointer;font:inherit;font-size:.85rem}
+@media(max-width:640px){nav a.hide-sm{display:none}}
+
+.hero{background:var(--green);color:var(--on-green);padding:4.5rem 0 4rem;overflow:hidden}
+.hero h1{font-size:clamp(2.8rem,9vw,6.4rem);font-weight:800;letter-spacing:-.04em;max-width:11ch}
+.hero p{max-width:46ch;font-size:1.2rem;margin:1.5rem 0 2rem;opacity:.92}
+.btn{display:inline-block;background:var(--yellow);color:#1A2118;font-weight:600;border:0;border-radius:6px;padding:.85rem 1.4rem;text-decoration:none;cursor:pointer;font:inherit;font-weight:600}
+.btn:hover{filter:brightness(1.06)}
+.btn.ghost{background:transparent;color:inherit;border:2px solid currentColor;margin-left:.5rem}
+.ticker{display:flex;gap:2.5rem;white-space:nowrap;margin-top:3.5rem;font:700 1.4rem "Bricolage Grotesque",sans-serif;opacity:.55;animation:slide 28s linear infinite;width:max-content}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(prefers-reduced-motion:reduce){.ticker{animation:none}html{scroll-behavior:auto}}
+
+section{padding:4.5rem 0}
+h2{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-.03em;margin-bottom:.75rem}
+.lead{color:var(--muted);max-width:56ch;margin:0 0 2.5rem}
+
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:1.25rem}
+.item{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:1.4rem;display:flex;flex-direction:column;gap:.5rem}
+.item .em{font-size:2.2rem}
+.item h3{font-size:1.4rem}
+.item p{margin:0;color:var(--muted);font-size:.97rem;flex:1}
+.price{font:700 1.15rem "Bricolage Grotesque",sans-serif;color:var(--ink)}
+.price small{font:400 .85rem Figtree,sans-serif;color:var(--muted)}
+.item button{align-self:flex-start;margin-top:.5rem;background:var(--ink);color:var(--bg);border:0;border-radius:6px;padding:.55rem 1rem;cursor:pointer;font:inherit;font-weight:600;font-size:.92rem}
+.item button:hover{background:var(--green);color:var(--on-green)}
+
+.order{background:var(--surface);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.order-box{display:grid;grid-template-columns:1.2fr 1fr;gap:2rem}
+@media(max-width:760px){.order-box{grid-template-columns:1fr}}
+.row{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:.8rem 0;border-bottom:1px solid var(--line)}
+.qty{display:flex;align-items:center;gap:.5rem}
+.qty button{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:var(--bg);color:var(--ink);font-size:1.1rem;cursor:pointer}
+.qty b{min-width:1.5rem;text-align:center}
+.summary{background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:1.4rem;align-self:start}
+.summary h3{font-size:1.4rem;margin-bottom:.75rem}
+.summary ul{list-style:none;padding:0;margin:0 0 1rem;min-height:3rem;color:var(--muted)}
+label{display:block;font-weight:600;font-size:.92rem;margin:.75rem 0 .3rem}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:.65rem .8rem}
+.summary .btn{width:100%;margin-top:1rem;text-align:center}
+.note{font-size:.85rem;color:var(--muted);margin-top:.6rem}
+
+.about{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+@media(max-width:760px){.about{grid-template-columns:1fr}}
+.stats{display:grid;gap:1rem}
+.stat{border-left:4px solid var(--yellow);padding-left:1rem}
+.stat b{display:block;font:800 1.5rem "Bricolage Grotesque",sans-serif}
+.stat span{color:var(--muted)}
+
+footer{background:var(--ink);color:var(--bg);padding:3rem 0 2rem}
+footer .wrap{display:flex;flex-wrap:wrap;gap:2rem;justify-content:space-between}
+footer p{margin:.25rem 0;opacity:.8}
+.copy{width:100%;opacity:.55;font-size:.85rem;border-top:1px solid #ffffff33;padding-top:1rem;margin-top:1rem}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="GGFoods Ventures">GG<span>F<svg class="coco" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#8B5A2B" stroke="#3E2615" stroke-width="1.5"/><ellipse cx="8" cy="7" rx="3.5" ry="2" fill="#B07A47" opacity=".8"/><circle cx="8.8" cy="12" r="1.8" fill="#24140A"/><circle cx="15.2" cy="12" r="1.8" fill="#24140A"/><circle cx="12" cy="16.3" r="1.8" fill="#24140A"/></svg><svg class="coco" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#8B5A2B" stroke="#3E2615" stroke-width="1.5"/><ellipse cx="8" cy="7" rx="3.5" ry="2" fill="#B07A47" opacity=".8"/><circle cx="8.8" cy="12" r="1.8" fill="#24140A"/><circle cx="15.2" cy="12" r="1.8" fill="#24140A"/><circle cx="12" cy="16.3" r="1.8" fill="#24140A"/></svg>ds</span> Ventures</a>
+    <nav>
+      <a class="hide-sm" href="#products">Products</a>
+      <a class="hide-sm" href="#order">Order</a>
+      <a class="hide-sm" href="#about">About</a>
+      <button class="theme" id="theme" type="button" aria-label="Toggle dark mode">Dark mode</button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <div class="hero">
+    <div class="wrap">
+      <h1>Good food, supplied well.</h1>
+      <p>GG Foods Ventures supplies kunu, tofu, fruit juice, palm oil, chin chin, pap and Tom Brown to homes, shops and events. Tell us what you need and we will deliver it.</p>
+      <a class="btn" href="#order">Place an order</a>
+      <a class="btn ghost" href="#products">See what we supply</a>
+    </div>
+    <div class="ticker" aria-hidden="true">
+      <span>Kunu</span><span>Tofu</span><span>Fruit juice</span><span>Palm oil</span><span>Chin chin</span><span>Pap</span><span>Tom Brown</span>
+      <span>Kunu</span><span>Tofu</span><span>Fruit juice</span><span>Palm oil</span><span>Chin chin</span><span>Pap</span><span>Tom Brown</span>
+    </div>
+  </div>
+
+  <section id="products">
+    <div class="wrap">
+      <h2>What we supply</h2>
+      <p class="lead">Seven products, sold in single units or bulk. Add any of them to your order list below.</p>
+      <div class="grid" id="catalog"></div>
+    </div>
+  </section>
+
+  <section class="order" id="order">
+    <div class="wrap">
+      <h2>Build your order</h2>
+      <p class="lead">Choose quantities, add your details, and send the list to us on WhatsApp. We reply with availability and a price.</p>
+      <div class="order-box">
+        <div id="rows"></div>
+        <div class="summary">
+          <h3>Your list</h3>
+          <ul id="list"><li>Nothing added yet. Use the + buttons.</li></ul>
+          <label for="name">Your name</label>
+          <input id="name" autocomplete="name">
+          <label for="addr">Delivery address</label>
+          <textarea id="addr" rows="2"></textarea>
+          <button class="btn" id="send" type="button">Send order on WhatsApp</button>
+          <p class="note" id="msg" role="status"></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="wrap about">
+      <div>
+        <h2>A food supplier you can plan around</h2>
+        <p>We source directly from farmers and trusted wholesalers, check every batch, and deliver on the day we promise. Whether you are stocking a kitchen, a shop or a party, you get the same careful handling.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><b>Checked on arrival</b><span>Every batch is inspected before it goes on a truck.</span></div>
+        <div class="stat"><b>Bulk or small</b><span>No minimum for households, discounts for big orders.</span></div>
+        <div class="stat"><b>Clear communication</b><span>You get a confirmation and a delivery time for each order.</span></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div class="logo" role="img" aria-label="GGFoods Ventures">GGF<svg class="coco" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#8B5A2B" stroke="#C9A06B" stroke-width="1.5"/><ellipse cx="8" cy="7" rx="3.5" ry="2" fill="#B07A47" opacity=".8"/><circle cx="8.8" cy="12" r="1.8" fill="#24140A"/><circle cx="15.2" cy="12" r="1.8" fill="#24140A"/><circle cx="12" cy="16.3" r="1.8" fill="#24140A"/></svg><svg class="coco" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#8B5A2B" stroke="#C9A06B" stroke-width="1.5"/><ellipse cx="8" cy="7" rx="3.5" ry="2" fill="#B07A47" opacity=".8"/><circle cx="8.8" cy="12" r="1.8" fill="#24140A"/><circle cx="15.2" cy="12" r="1.8" fill="#24140A"/><circle cx="12" cy="16.3" r="1.8" fill="#24140A"/></svg>ds Ventures</div>
+      <p>Kunu, tofu, juice, palm oil and snacks.</p>
+    </div>
+    <div>
+      <p>Phone: +234 813 192 1002</p>
+      <p>Address: Penthouse Estate 3, B355, Lugbe, Abuja</p>
+      <p>Email: hello@ggfoodsventures.com</p>
+      <p>Hours: Mon to Sat, 8am to 6pm</p>
+    </div>
+    <p class="copy">© <span id="yr"></span> GG Foods Ventures. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+// ---- Settings: change these to your real details ----
+var WHATSAPP_NUMBER = "2348131921002"; // country code + number, no + or spaces
+
+var PRODUCTS = [
+  {id:"tigernut", icon:"🥛", name:"Kunu", desc:"Chilled tigernut kunu, creamy and naturally sweet.", unit:"bottle"},
+  {id:"tofu",     icon:"🧈", name:"Tofu", desc:"Fresh, firm soy tofu for frying, grilling and stews.", unit:"pack"},
+  {id:"juice",    icon:"🍹", name:"Fruit juice", desc:"Fruit juice with no fuss, in single bottles or by the carton.", unit:"bottle"},
+  {id:"palmoil",  icon:"🫒", name:"Palm oil", desc:"Rich red palm oil for cooking, in small and large containers.", unit:"container"},
+  {id:"chinchin", icon:"🍪", name:"Chin chin", desc:"Crunchy fried snack, packed for gifting, parties and everyday snacking.", unit:"pack"},
+  {id:"pap",      icon:"🥣", name:"Pap", desc:"Smooth fermented corn pap, ready to prepare for breakfast.", unit:"pack"},
+  {id:"tombrown", icon:"🌽", name:"Tom Brown", desc:"Toasted grain and legume porridge mix, nutritious for the whole family.", unit:"pack"}
+];
+
+// Prices in Naira (₦) per unit. Edit these when your prices change.
+var PRICES = {tigernut:1000, tofu:3000, juice:1500, palmoil:7000, chinchin:4000, pap:3000, tombrown:3850};
+function fmt(n){ return "₦" + n.toLocaleString("en-NG"); }
+function total(){ return PRODUCTS.reduce(function(s,p){ return s + (order[p.id]||0) * PRICES[p.id]; }, 0); }
+
+var order = {}; // id -> quantity
+var $ = function(s){ return document.querySelector(s); };
+
+function renderCatalog(){
+  $("#catalog").innerHTML = PRODUCTS.map(function(p){
+    return '<article class="item"><div class="em" aria-hidden="true">'+p.icon+'</div>'+
+      '<h3>'+p.name+'</h3><p>'+p.desc+'</p><strong class="price">'+fmt(PRICES[p.id])+' <small>per '+p.unit+'</small></strong>'+
+      '<button type="button" data-add="'+p.id+'">Add to order</button></article>';
+  }).join("");
+}
+
+function renderRows(){
+  $("#rows").innerHTML = PRODUCTS.map(function(p){
+    var q = order[p.id] || 0;
+    return '<div class="row"><div><strong>'+p.name+'</strong><br><small style="color:var(--muted)">'+fmt(PRICES[p.id])+' per '+p.unit+'</small></div>'+
+      '<div class="qty"><button type="button" data-dec="'+p.id+'" aria-label="Remove one '+p.name+'">−</button>'+
+      '<b aria-live="polite">'+q+'</b>'+
+      '<button type="button" data-add="'+p.id+'" aria-label="Add one '+p.name+'">+</button></div></div>';
+  }).join("");
+  var lines = PRODUCTS.filter(function(p){ return order[p.id]; })
+    .map(function(p){ return "<li>"+order[p.id]+" × "+p.name+" ("+p.unit+"): "+fmt(order[p.id]*PRICES[p.id])+"</li>"; });
+  $("#list").innerHTML = lines.length ? lines.join("") + "<li><strong style='color:var(--ink)'>Total: "+fmt(total())+"</strong></li>" : "<li>Nothing added yet. Use the + buttons.</li>";
+}
+
+function change(id, d){
+  order[id] = Math.max(0, (order[id] || 0) + d);
+  renderRows();
+}
+
+document.addEventListener("click", function(e){
+  var t = e.target;
+  if (t.dataset.add){ change(t.dataset.add, 1); if (t.closest("#catalog")) $("#msg").textContent = "Added. Scroll to Build your order to review."; }
+  if (t.dataset.dec){ change(t.dataset.dec, -1); }
+});
+
+$("#send").addEventListener("click", function(){
+  var items = PRODUCTS.filter(function(p){ return order[p.id]; });
+  var name = $("#name").value.trim(), addr = $("#addr").value.trim();
+  if (!items.length){ $("#msg").textContent = "Add at least one product first."; return; }
+  if (!name){ $("#msg").textContent = "Enter your name so we know who to reply to."; $("#name").focus(); return; }
+  var text = "Hello GG Foods Ventures, I would like to order:\n" +
+    items.map(function(p){ return "- " + order[p.id] + " × " + p.name + " (" + p.unit + ")"; }).join("\n") +
+    "\n\nTotal: " + fmt(total()) + "\n\nName: " + name + (addr ? "\nDelivery address: " + addr : "");
+  window.open("https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(text), "_blank");
+  $("#msg").textContent = "Opening WhatsApp with your order.";
+});
+
+// Theme toggle (kept in memory only)
+$("#theme").addEventListener("click", function(){
+  var root = document.documentElement;
+  var dark = root.dataset.theme === "dark" ||
+    (!root.dataset.theme && matchMedia("(prefers-color-scheme: dark)").matches);
+  root.dataset.theme = dark ? "light" : "dark";
+  this.textContent = dark ? "Dark mode" : "Light mode";
+});
+
+$("#yr").textContent = new Date().getFullYear();
+renderCatalog(); renderRows();
+</script>
+</body>
+</html>
